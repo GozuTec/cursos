@@ -1,0 +1,13 @@
+NetPrep - páginas: index, cursos, ruta, laboratorios, contacto (.html)
+
+Compilar estilos (instalar una vez: npm i -g sass less):
+  sass scss/style.scss css/style.css
+  lessc less/botones.less css/botones.css
+
+Logos de marcas (Cisco, INE, CompTIA, LPI):
+  Por ahora aparecen como texto. Para poner los logos oficiales, descárgalos de la
+  sección de prensa o marca de cada sitio, guárdalos en img/logos/ (cisco.svg, ine.svg...)
+  y cambia cada <li>Cisco</li> de index.html por <li><img src="img/logos/cisco.svg" alt="Cisco"></li>.
+  Tamaño: en css/style.css busca '.marcas img' y cambia height.
+
+Video: descarga un clip gratis y guárdalo como media/clase.mp4 (sección "Mira cómo es una clase" de index.html).

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- El viewport hace que la página se vea bien en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos | NetPrep</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="css/botones.css"> <!-- botones y pegatinas (LESS) -->
+  <link rel="stylesheet" href="css/style.css">   <!-- el resto de estilos (SASS) -->
+</head>
+<body>
+
+<!-- Barra de aviso de arriba -->
+<div class="aviso">Inscripciones abiertas: <strong>20% de descuento</strong> para estudiantes universitarios</div>
+
+<!-- ========== CABECERA (es igual en todas las páginas) ========== -->
+<header class="header">
+  <nav class="contenedor nav">
+    <!-- El logo es un dibujo SVG: tres nodos conectados, como una red -->
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#1b2a49"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="10" cy="28" r="3.5" fill="#fbf4e6"/>
+        <circle cx="20" cy="12" r="3.5" fill="#f26b38" class="nodo"/>
+        <circle cx="30" cy="28" r="3.5" fill="#fbf4e6"/>
+      </svg>
+      <span>Net<b>Prep</b></span>
+    </a>
+    <ul class="menu"><li><a href="cursos.html" class="activo">Cursos</a></li><li><a href="ruta.html">Ruta de estudio</a></li><li><a href="laboratorios.html">Laboratorios</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+  </nav>
+</header>
+
+<main>
+<section class="cabecera-pagina amarillo"><div class="contenedor"><h1>Nuestros cursos</h1><p>Cuatro caminos para empezar o seguir avanzando en TI. Todos incluyen clases, laboratorios y simulacros.</p></div></section>
+  <section>
+    <div class="contenedor">
+      <div class="grid-2">
+        <article class="curso" id="ccna">
+          <div class="curso-cabecera naranja"><span class="sigla">CCNA</span><span class="nivel">Intermedio</span></div>
+          <div class="curso-cuerpo">
+            <h3>CCNA 200-301</h3>
+            <p>Redes, enrutamiento, switching y seguridad básica con Packet Tracer.</p><ul class="lista-check"><li>Direccionamiento IPv4 e IPv6</li><li>VLAN, STP y enrutamiento OSPF</li><li>ACL y seguridad básica</li><li>Automatización y APIs</li></ul>
+            <ul class="datos"><li>12 semanas</li><li>60 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 249</span><a href="contacto.html" class="btn btn-sm">Quiero este curso</a></div>
+          </div>
+        </article>
+        <article class="curso" id="ejpt">
+          <div class="curso-cabecera verde"><span class="sigla">eJPT</span><span class="nivel">Inicial</span></div>
+          <div class="curso-cuerpo">
+            <h3>eJPT</h3>
+            <p>Pentesting básico: reconocimiento, explotación y reportes en laboratorio.</p><ul class="lista-check"><li>Reconocimiento y escaneo de redes</li><li>Explotación de servicios vulnerables</li><li>Metasploit y herramientas básicas</li><li>Redacción de reportes</li></ul>
+            <ul class="datos"><li>8 semanas</li><li>40 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 199</span><a href="contacto.html" class="btn btn-sm">Quiero este curso</a></div>
+          </div>
+        </article>
+        <article class="curso" id="secplus">
+          <div class="curso-cabecera amarillo"><span class="sigla">SEC+</span><span class="nivel">Intermedio</span></div>
+          <div class="curso-cuerpo">
+            <h3>Security+</h3>
+            <p>Fundamentos de seguridad: amenazas, criptografía y gestión de riesgos.</p><ul class="lista-check"><li>Amenazas, ataques y vulnerabilidades</li><li>Criptografía y PKI</li><li>Identidades y control de acceso</li><li>Riesgo, gobierno y cumplimiento</li></ul>
+            <ul class="datos"><li>10 semanas</li><li>50 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 219</span><a href="contacto.html" class="btn btn-sm">Quiero este curso</a></div>
+          </div>
+        </article>
+        <article class="curso" id="linux">
+          <div class="curso-cabecera azul"><span class="sigla">LINUX</span><span class="nivel">Inicial</span></div>
+          <div class="curso-cuerpo">
+            <h3>Linux Essentials</h3>
+            <p>Terminal, permisos, usuarios y scripts para empezar en TI.</p><ul class="lista-check"><li>Comandos y navegación en terminal</li><li>Usuarios, grupos y permisos</li><li>Edición de archivos y scripts</li><li>Redes y servicios en Linux</li></ul>
+            <ul class="datos"><li>6 semanas</li><li>30 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 129</span><a href="contacto.html" class="btn btn-sm">Quiero este curso</a></div>
+          </div>
+        </article>
+        <!-- Este banner ocupa todas las columnas (grid-column) -->
+        <div class="banner azul">
+          <div><h3>Plan completo</h3><p>Los cuatro cursos juntos, con acceso de por vida.</p></div>
+          <a href="contacto.html" class="btn-claro">Quiero el plan · S/ 599</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Compáralos</h2><p>Los cursos de un vistazo</p></div>
+      <!-- tabla-wrap deja que la tabla se deslice de lado en el celular -->
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th>Curso</th><th>Prepara para</th><th>Nivel</th><th>Duración</th><th>Precio</th></tr></thead>
+          <tbody>
+            <tr><td>CCNA 200-301</td><td>Cisco</td><td>Intermedio</td><td>12 semanas</td><td>S/ 249</td></tr>
+            <tr><td>eJPT</td><td>INE</td><td>Inicial</td><td>8 semanas</td><td>S/ 199</td></tr>
+            <tr><td>Security+</td><td>CompTIA</td><td>Intermedio</td><td>10 semanas</td><td>S/ 219</td></tr>
+            <tr><td>Linux Essentials</td><td>LPI</td><td>Inicial</td><td>6 semanas</td><td>S/ 129</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Preguntas frecuentes</h2><p>Lo que más nos preguntan antes de inscribirse.</p></div>
+      <div class="faq"><details><summary>¿Necesito experiencia previa?</summary><p>Linux Essentials y eJPT están pensados para empezar. Para CCNA y Security+ recomendamos tener bases de computación.</p></details><details><summary>¿Cuánto tiempo tengo acceso?</summary><p>El acceso a las clases y laboratorios es de por vida, incluidas las actualizaciones.</p></details><details><summary>¿El precio incluye el examen oficial?</summary><p>No. El examen se paga directamente a cada organización certificadora.</p></details><details><summary>¿Puedo estudiar desde el celular?</summary><p>Sí, la plataforma se adapta a celulares, tablets y computadoras.</p></details></div>
+    </div>
+  </section>
+
+  <section class="cta naranja"><div class="contenedor"><h2>¿Dudas con cuál elegir?</h2><p>Cuéntanos tu meta y te recomendamos un camino.</p><a href="contacto.html" class="btn-claro">Escríbenos</a></div></section>
+</main>
+
+<!-- ========== PIE DE PÁGINA (es igual en todas las páginas) ========== -->
+<footer class="pie-pagina">
+  <div class="contenedor">
+    <div class="cols">
+      <div><p class="nombre">NetPrep</p><p>Preparación práctica para certificaciones de redes y ciberseguridad.</p></div>
+      <div><h4>Páginas</h4><a href="index.html">Inicio</a><a href="cursos.html">Cursos</a><a href="ruta.html">Ruta de estudio</a><a href="laboratorios.html">Laboratorios</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Cursos</h4><a href="cursos.html#ccna">CCNA</a><a href="cursos.html#ejpt">eJPT</a><a href="cursos.html#secplus">Security+</a><a href="cursos.html#linux">Linux Essentials</a></div>
+      <div><h4>Novedades</h4><p>Recibe consejos de estudio en tu correo.</p>
+        <form onsubmit="return false"><input type="email" placeholder="tu@correo.com"><button class="btn btn-sm">Unirme</button></form></div>
+    </div>
+    <p class="legal">© 2026 NetPrep · Proyecto académico de Hojas de Estilo en Cascada Avanzado · Cursos, precios, personas y testimonios son de ejemplo. Cisco, INE, CompTIA y LPI son marcas de sus respectivos dueños; este proyecto no está afiliado a ellas.</p>
+  </div>
+</footer>
+
+</body>
+</html>

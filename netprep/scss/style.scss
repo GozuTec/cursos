@@ -1,0 +1,433 @@
+// =====================================================
+//  NetPrep - estilos hechos con SASS (.scss)
+//  Idea principal: lo que se repite (colores, tamaños)
+//  se guarda en variables y así solo lo cambias una vez.
+// =====================================================
+
+
+// ---------- 1. VARIABLES (empiezan con $) ----------
+$crema:#fbf4e6;
+$papel:#fffdf8;
+$azul:#1b2a49;
+$naranja:#f26b38;
+$amarillo:#ffd166;
+$verde:#7fd1bd;
+$verde-oscuro:#1f8a7d;
+$gris:#5b6275;
+$linea:#e4d9c3;
+
+$fuente-titulo:'DM Serif Display',Georgia,serif;
+$fuente-texto:'DM Sans','Segoe UI',Arial,sans-serif;
+$fuente-codigo:Consolas,'Courier New',monospace;
+
+$tablet:768px;    // desde este ancho es una tablet
+$pc:1050px;       // desde este ancho es una computadora
+$espacio:16px;    // medida base: la multiplicamos para otros espacios
+$redondeo:14px;
+
+
+// ---------- 2. MIXINS (bloques que reutilizamos) ----------
+// Centra lo que haya adentro
+@mixin centrado{
+  display:flex; align-items:center; justify-content:center;
+}
+// Tarjeta con borde y una sombra "dura" del color que le pasemos
+@mixin tarjeta($color-sombra){
+  background:$papel; border:2px solid $azul; border-radius:$redondeo;
+  box-shadow:4px 4px 0 $color-sombra;
+}
+// Mueve algo. Lo escribimos con y sin prefijo para navegadores viejos
+@mixin mover($valor){
+  -webkit-transform:$valor;
+  transform:$valor;
+}
+
+
+// ---------- 3. BASE (lo general de toda la página) ----------
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:$fuente-texto; background:$crema; color:$azul; line-height:1.6; }
+img,svg{ max-width:100%; height:auto; display:block; }   // las imágenes nunca se salen de su caja
+ul{ list-style:none; }
+a{ color:inherit; }
+
+h1,h2,h3{ font-family:$fuente-titulo; font-weight:400; line-height:1.15; }
+// clamp(mínimo, ideal, máximo): el texto crece con la pantalla pero sin pasarse
+h1{ font-size:clamp(2.4rem,6vw,4rem); }
+h2{ font-size:clamp(1.9rem,4vw,2.8rem); }
+h3{ font-size:1.4rem; }
+
+.contenedor{ width:min(100% - 2rem,1150px); margin:0 auto; }   // caja centrada
+section{ padding:$espacio * 5 0; }                              // 16px × 5 = 80px
+
+// Efecto de resaltador sobre una palabra
+.marcador{ background:linear-gradient(transparent 60%,$amarillo 60%); padding:0 4px; }
+
+.titulo-seccion{
+  margin-bottom:$espacio * 3; max-width:600px;
+  p{ color:$gris; margin-top:8px; }
+}
+
+// Colores listos para ponerle a cualquier caja
+.naranja{ background:$naranja; color:$azul; }
+.verde{ background:$verde; color:$azul; }
+.amarillo{ background:$amarillo; color:$azul; }
+.azul{ background:$azul; color:$crema; }
+.franja{ background:$papel; border-top:2px solid $azul; border-bottom:2px solid $azul; }
+
+
+// ---------- 4. BARRA DE AVISO Y CABECERA ----------
+.aviso{
+  padding:8px $espacio; background:$azul; color:$crema; font-size:.85rem; text-align:center;
+  strong{ color:$amarillo; }
+}
+
+.header{
+  position:sticky; top:0; z-index:10; background:$crema; border-bottom:2px solid $azul;
+  .nav{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 24px; padding:12px 0; }
+  .logo{
+    display:flex; align-items:center; gap:10px; text-decoration:none; font-family:$fuente-titulo; font-size:1.7rem;
+    b{ color:$naranja; font-weight:400; }
+  }
+  .nodo{ transform-box:fill-box; transform-origin:center; animation:latido 2.4s ease-in-out infinite; }
+  // En celular los enlaces pasan a una segunda fila (flex-wrap)
+  .menu{
+    display:flex; flex-wrap:wrap; gap:6px 22px;
+    a{
+      padding:2px 4px; text-decoration:none; font-weight:500; transition:color .2s;
+      &:hover{ color:$naranja; }
+      &.activo{ background:linear-gradient(transparent 60%,$amarillo 60%); }   // la página donde estás
+    }
+  }
+}
+
+
+// ---------- 5. INICIO ----------
+.hero{
+  padding-top:$espacio * 4;
+  background-image:radial-gradient($linea 1.5px,transparent 1.5px);   // fondo de puntitos
+  background-size:22px 22px;
+
+  .hero-grid{ display:grid; gap:$espacio * 3; align-items:center; }
+  .pegatina{ margin-bottom:16px; animation:balanceo 3s ease-in-out infinite; }
+  h1{ margin-bottom:16px; }
+  .hero-texto p{ max-width:48ch; margin-bottom:28px; color:$gris; font-size:1.1rem; }
+  .botones{ display:flex; flex-wrap:wrap; gap:16px; }
+  .mini-datos{
+    display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:32px; font-size:.9rem; color:$gris;
+    strong{ display:block; font-family:$fuente-titulo; font-size:1.8rem; font-weight:400; line-height:1.1; color:$azul; }
+  }
+  .hero-visual{ position:relative; padding-bottom:30px; }
+
+  // En pantalla grande: texto a la izquierda y terminal a la derecha
+  @media (min-width:$pc){
+    .hero-grid{ grid-template-columns:1.1fr 1fr; }
+  }
+}
+
+// La terminal de comandos
+.terminal{
+  background:$azul; border:2px solid $azul; border-radius:$redondeo; overflow:hidden;
+  box-shadow:8px 8px 0 $naranja; font-family:$fuente-codigo; font-size:.9rem;
+  .barra{
+    display:flex; align-items:center; gap:6px; padding:10px 14px; background:#2b3d63;
+    span{ width:11px; height:11px; border-radius:50%; background:$amarillo; }
+    span:first-child{ background:$naranja; }
+    span:last-of-type{ background:$verde; }
+    p{ margin-left:10px; color:#b8c4dd; font-size:.8rem; }
+  }
+  .cuerpo{ padding:20px; min-height:210px; }
+  // Cada línea empieza invisible y aparece con un retraso distinto
+  .linea{ opacity:0; overflow-wrap:anywhere; color:#cfd8ea; animation:aparecer .4s ease forwards; }
+  .l1{ animation-delay:.4s; color:$amarillo; }
+  .l2{ animation-delay:1.2s; }
+  .l3{ animation-delay:2s; color:$amarillo; }
+  .l4{ animation-delay:2.8s; }
+  .l5{ animation-delay:3.2s; }
+  .l6{ animation-delay:3.8s; color:$amarillo; }
+  .cursor{ display:inline-block; width:9px; height:1.1em; background:$amarillo; vertical-align:text-bottom; animation:parpadeo 1s steps(1) infinite; }
+}
+
+// La notita amarilla
+.nota-adhesiva{
+  position:relative; max-width:260px; margin-top:20px; padding:14px 16px;
+  background:$amarillo; border:2px solid $azul; box-shadow:3px 3px 0 $azul; font-size:.9rem;
+  transform:rotate(-3deg);
+  @media (min-width:$tablet){
+    position:absolute; left:-24px; bottom:-6px; margin:0;
+  }
+}
+
+// Franja con las marcas de las certificaciones
+.marcas{
+  padding:28px 0; background:$papel; border-top:2px solid $azul; border-bottom:2px solid $azul;
+  p{ margin-bottom:14px; text-align:center; font-size:.9rem; color:$gris; }
+  ul{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:20px 56px; }
+  li{
+    display:flex; align-items:center; font-family:$fuente-titulo; font-size:1.7rem; opacity:.65; transition:opacity .2s;
+    &:hover{ opacity:1; }
+  }
+  // Tamaño de los logos: cambia el 44px si los quieres más grandes
+  img{
+    height:44px; width:auto; max-width:180px; object-fit:contain; filter:grayscale(1);
+    @media (min-width:$tablet){ height:56px; }
+  }
+}
+
+
+// ---------- 6. CUADRÍCULAS (Grid) ----------
+.grid-2, .grid-3{ display:grid; gap:$espacio * 1.5; }
+.grid-2{
+  @media (min-width:$tablet){ grid-template-columns:repeat(2,1fr); }
+}
+.grid-3{
+  @media (min-width:$tablet){ grid-template-columns:repeat(2,1fr); }
+  @media (min-width:$pc){ grid-template-columns:repeat(3,1fr); }
+}
+
+
+// ---------- 7. TARJETAS DE CURSO ----------
+.curso{
+  @include tarjeta($azul);
+  overflow:hidden; display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s;
+  &:hover{ @include mover(translate(-3px,-3px)); box-shadow:7px 7px 0 $azul; }
+
+  .curso-cabecera{ display:flex; justify-content:space-between; align-items:flex-end; min-height:110px; padding:20px; border-bottom:2px solid $azul; }
+  .sigla{ font-family:$fuente-titulo; font-size:2.4rem; line-height:1; }
+  .nivel{ padding:3px 12px; border:2px solid currentColor; border-radius:50px; font-size:.78rem; font-weight:700; }
+  .curso-cuerpo{ display:flex; flex-direction:column; flex:1; gap:12px; padding:20px; }
+  .curso-cuerpo p{ color:$gris; }
+  .datos{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:.85rem; font-weight:700; }
+  .pie{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:auto; padding-top:16px; border-top:2px dashed $linea; }
+  .precio{ font-family:$fuente-titulo; font-size:1.8rem; }
+}
+
+// Lista con ✓
+.lista-check{
+  display:grid; gap:6px;
+  li{
+    position:relative; padding-left:26px; font-size:.92rem;
+    &::before{ content:"✓"; position:absolute; left:0; color:$verde-oscuro; font-weight:700; }
+  }
+}
+.lista-dos{
+  @media (min-width:$tablet){ grid-template-columns:repeat(2,1fr); }
+}
+
+// Banner del plan completo: ocupa todas las columnas del grid
+.banner{
+  grid-column:1 / -1;
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px;
+  padding:28px; border:2px solid $azul; border-radius:$redondeo; box-shadow:4px 4px 0 $naranja;
+  p{ opacity:.85; }
+}
+
+
+// ---------- Video responsivo (multimedia) ----------
+.video-bloque{
+  display:grid; gap:$espacio * 3;
+  .video{ @include tarjeta($naranja); overflow:hidden; aspect-ratio:16/9; }   // siempre 16:9, sin importar el ancho
+  .video video{ width:100%; height:100%; object-fit:cover; background:$azul; }
+  // En computadora usamos grid-column y grid-row para ubicar cada cosa:
+  // el video ocupa la columna 2 (filas 1 y 2) y el texto y la lista van en la columna 1
+  @media (min-width:$pc){
+    grid-template-columns:1fr 1.3fr;
+    .video{ grid-column:2; grid-row:1 / 3; align-self:center; }
+    .texto-video{ grid-column:1; grid-row:1; }
+    .lista-check{ grid-column:1; grid-row:2; }
+  }
+}
+
+
+// ---------- 8. PASOS, NÚMEROS, GENTE ----------
+.pasos{
+  display:flex; flex-wrap:wrap; gap:$espacio * 2;
+  .paso{ flex:1 1 220px; }
+  .num{
+    @include centrado;
+    width:52px; height:52px; margin-bottom:14px; background:$amarillo; border:2px solid $azul; border-radius:50%;
+    font-family:$fuente-titulo; font-size:1.6rem; box-shadow:3px 3px 0 $azul; transition:transform .4s;
+  }
+  .paso:hover .num{ transform:rotate(360deg); }
+  p{ margin-top:6px; color:$gris; }
+}
+
+.numeros{
+  padding:$espacio * 3 0;
+  .contenedor{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; text-align:center; }
+  strong{ display:block; font-family:$fuente-titulo; font-size:clamp(2rem,5vw,3rem); font-weight:400; line-height:1.1; color:$amarillo; }
+  span{ font-size:.9rem; }
+  @media (min-width:$tablet){
+    .contenedor{ grid-template-columns:repeat(4,1fr); }
+  }
+}
+
+.testimonio{
+  @include tarjeta($verde);
+  display:flex; flex-direction:column; gap:16px; padding:24px; transition:transform .3s;
+  &:nth-child(odd){ transform:rotate(-1deg); }    // cada tarjeta un poquito chueca
+  &:nth-child(even){ transform:rotate(1deg); }
+  &:hover{ transform:rotate(0); }
+  .autor{ display:flex; align-items:center; gap:12px; font-size:.9rem; color:$gris; }
+  .autor strong{ display:block; color:$azul; }
+}
+.avatar{
+  @include centrado;
+  flex:0 0 46px; width:46px; height:46px; border:2px solid $azul; border-radius:50%; font-weight:700;
+}
+
+.persona{
+  text-align:center;
+  .foto{
+    @include centrado;
+    width:120px; height:120px; margin:0 auto 14px; border:2px solid $azul; border-radius:50%;
+    font-family:$fuente-titulo; font-size:2.6rem; box-shadow:4px 4px 0 $azul; transition:transform .3s;
+  }
+  &:hover .foto{ transform:scale(1.06) rotate(-4deg); }
+  p{ color:$gris; font-size:.92rem; }
+  .certs{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:10px; }
+  .certs span{ padding:2px 10px; background:$papel; border:2px solid $azul; border-radius:50px; font-size:.75rem; font-weight:700; }
+}
+
+// Banda grande de "empieza ya"
+.cta{
+  border-top:2px solid $azul; border-bottom:2px solid $azul; text-align:center;
+  .contenedor{ max-width:720px; }
+  p{ margin:12px 0 24px; }
+}
+
+
+// ---------- 9. PÁGINAS INTERNAS ----------
+.cabecera-pagina{
+  position:relative; overflow:hidden; padding:$espacio * 4 0; border-bottom:2px solid $azul;
+  h1{ font-size:clamp(2.2rem,5vw,3.4rem); }
+  p{ max-width:56ch; margin-top:10px; font-size:1.1rem; }
+  // Un círculo decorativo para que no se vea vacío
+  &::after{
+    content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px;
+    border:2px solid $azul; border-radius:50%; opacity:.25;
+  }
+}
+
+.caja{
+  @include tarjeta($amarillo);
+  padding:24px;
+  h3{ margin-bottom:8px; }
+  p{ color:$gris; }
+}
+
+// Tabla que se desliza de lado en el celular
+.tabla-wrap{ @include tarjeta($azul); overflow-x:auto; }
+table{ width:100%; min-width:560px; border-collapse:collapse; }
+th,td{ padding:14px 18px; text-align:left; border-bottom:1px solid $linea; }
+th{ background:$amarillo; font-size:.85rem; }
+tbody tr:hover{ background:#fff3d6; }
+tbody tr:last-child td{ border-bottom:0; }
+
+// Plan de 12 semanas
+.linea-tiempo{
+  li{
+    display:flex; gap:20px; padding:18px 0; border-bottom:2px dashed $linea;
+    &:last-child{ border-bottom:0; }
+  }
+  .sem{ flex:0 0 120px; font-family:$fuente-titulo; font-size:1.25rem; color:$naranja; }
+  p{ color:$gris; }
+}
+
+// Notitas de consejos
+.nota{
+  padding:22px; border:2px solid $azul; box-shadow:4px 4px 0 $azul; transition:transform .3s;
+  &:nth-child(1){ transform:rotate(-2deg); }
+  &:nth-child(2){ transform:rotate(1.5deg); }
+  &:nth-child(3){ transform:rotate(-1deg); }
+  &:hover{ transform:rotate(0) scale(1.03); }
+  h3{ margin-bottom:6px; }
+}
+
+// Preguntas frecuentes: <details> se abre y se cierra sin JavaScript
+.faq{
+  max-width:760px;
+  details{ @include tarjeta($azul); padding:16px 20px; margin-bottom:14px; }
+  details[open]{ background:#fff3d6; }
+  summary{
+    display:flex; justify-content:space-between; cursor:pointer; font-weight:700; list-style:none;
+    &::-webkit-details-marker{ display:none; }
+    &::after{ content:"+"; color:$naranja; font-size:1.4rem; line-height:1; transition:transform .3s; }
+  }
+  details[open] summary::after{ transform:rotate(45deg); }
+  p{ margin-top:10px; color:$gris; }
+}
+
+// Laboratorios: Grid con áreas con nombre
+.panel{
+  display:grid; gap:$espacio * 1.5;
+  grid-template-areas:"intro" "diagrama" "d1" "d2";            // celular: una columna
+  .intro{ grid-area:intro; }
+  .intro p{ max-width:50ch; margin-top:12px; color:$gris; }
+  .diagrama{ @include tarjeta($naranja); grid-area:diagrama; display:grid; align-content:center; padding:20px; }
+  .d1{ grid-area:d1; }
+  .d2{ grid-area:d2; }
+  .dato{ @include tarjeta($azul); padding:24px; }
+  .dato strong{ display:block; font-family:$fuente-titulo; font-size:2.6rem; font-weight:400; line-height:1.1; color:$naranja; }
+  @media (min-width:$pc){
+    grid-template-columns:1fr 1fr 1.4fr;
+    grid-template-areas:"intro intro diagrama" "d1 d2 diagrama";   // computadora: tres columnas
+  }
+}
+// Dibujo de la red (SVG)
+.diagrama svg{
+  text{ font-family:$fuente-texto; font-size:13px; fill:$azul; text-anchor:middle; }
+  .equipo{ fill:$papel; stroke:$azul; stroke-width:2; }
+  .enlace{ stroke:$naranja; stroke-width:2.5; stroke-dasharray:6 6; animation:flujo 1.5s linear infinite; }
+}
+
+// Contacto
+.contacto-grid{
+  display:grid; gap:$espacio * 3;
+  @media (min-width:$pc){ grid-template-columns:1fr 1fr; }
+}
+.contacto-info{
+  @include tarjeta($verde);
+  padding:28px;
+  li{ margin-bottom:10px; }
+}
+form{ display:grid; gap:12px; }
+input,select,textarea{
+  padding:13px 16px; border:2px solid $azul; border-radius:10px; background:$papel;
+  font:inherit; color:$azul; transition:box-shadow .2s;
+  &:focus{ outline:0; box-shadow:4px 4px 0 $naranja; }
+}
+
+
+// ---------- 10. PIE DE PÁGINA ----------
+.pie-pagina{
+  padding:$espacio * 3 0 $espacio * 1.5; background:$azul; color:#c3cde0; font-size:.92rem;
+  .cols{
+    display:grid; gap:32px;
+    @media (min-width:$tablet){ grid-template-columns:2fr 1fr 1fr 1.6fr; }
+  }
+  .nombre{ margin-bottom:6px; font-family:$fuente-titulo; font-size:1.7rem; color:$crema; }
+  h4{ margin-bottom:12px; font-size:1rem; color:$amarillo; }
+  a{ display:block; margin-bottom:8px; text-decoration:none; transition:color .2s; &:hover{ color:$amarillo; } }
+  form{ display:flex; gap:8px; }
+  form input{ flex:1; min-width:0; }
+  .legal{ margin-top:32px; padding-top:18px; border-top:1px solid #34456b; font-size:.8rem; }
+}
+
+
+// ---------- 11. ANIMACIONES con @keyframes ----------
+@keyframes aparecer{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+@keyframes parpadeo{ 0%,100%{ opacity:1; } 50%{ opacity:0; } }
+@keyframes latido{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.35); } }
+@keyframes flujo{ to{ stroke-dashoffset:-12; } }
+@keyframes balanceo{ 0%,100%{ transform:rotate(-3deg); } 50%{ transform:rotate(3deg); } }
+
+// Si el navegador es muy viejo y no entiende Grid, usamos Flexbox
+@supports not (display:grid){
+  .grid-2,.grid-3{ display:flex; flex-wrap:wrap; }
+  .curso,.testimonio,.caja{ flex:1 1 280px; }
+}
+// Si la persona pidió menos movimiento en su sistema, quitamos las animaciones
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation:none !important; transition:none !important; }
+}

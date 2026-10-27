@@ -1,0 +1,64 @@
+// =====================================================
+//  NetPrep - botones y pegatinas hechos con LESS (.less)
+//  LESS guarda valores en variables que empiezan con @
+// =====================================================
+
+// ----- Variables -----
+@azul:#1b2a49;
+@naranja:#f26b38;
+@amarillo:#ffd166;
+@crema:#fbf4e6;
+@espacio:12px;
+
+// ----- Mixin: una "receta" de botón -----
+// Le pasamos el color de fondo y el color del texto, y hace el resto.
+.boton(@fondo,@texto){
+  display:inline-block;
+  padding:@espacio (@espacio * 2);          // 12px arriba y abajo, 24px a los lados
+  border:2px solid @azul;
+  border-radius:50px;
+  background:@fondo;
+  color:@texto;
+  font-family:inherit;
+  font-size:1rem;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:3px 3px 0 @azul;               // sombra "dura", sin difuminar
+  transition:transform .2s, box-shadow .2s; // animación suave al pasar el mouse
+
+  // Al pasar el mouse el botón se mueve un poquito
+  &:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:5px 5px 0 @azul;
+  }
+  // Al hacer clic parece que se hunde
+  &:active{
+    transform:translate(2px,2px);
+    box-shadow:1px 1px 0 @azul;
+  }
+}
+
+// ----- Los tres botones que usamos en las páginas -----
+.btn{ .boton(@naranja,@azul); }
+.btn-claro{ .boton(@amarillo,@azul); }
+.btn-contorno{ .boton(@crema,@azul); }
+
+// Botón pequeño: usamos operaciones (dividir y multiplicar)
+.btn-sm{
+  padding:(@espacio / 2) (@espacio * 1.5);
+  font-size:.9rem;
+}
+
+// ----- Pegatina (la etiqueta inclinada) -----
+.pegatina{
+  display:inline-block;
+  padding:4px 14px;
+  background:@amarillo;
+  border:2px solid @azul;
+  border-radius:50px;
+  font-size:.85rem;
+  font-weight:700;
+  box-shadow:2px 2px 0 fade(@azul,40%);     // fade() hace el color más transparente
+  transform:rotate(-3deg);
+}

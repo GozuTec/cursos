@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- El viewport hace que la página se vea bien en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruta de estudio | NetPrep</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="css/botones.css"> <!-- botones y pegatinas (LESS) -->
+  <link rel="stylesheet" href="css/style.css">   <!-- el resto de estilos (SASS) -->
+</head>
+<body>
+
+<!-- Barra de aviso de arriba -->
+<div class="aviso">Inscripciones abiertas: <strong>20% de descuento</strong> para estudiantes universitarios</div>
+
+<!-- ========== CABECERA (es igual en todas las páginas) ========== -->
+<header class="header">
+  <nav class="contenedor nav">
+    <!-- El logo es un dibujo SVG: tres nodos conectados, como una red -->
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#1b2a49"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="10" cy="28" r="3.5" fill="#fbf4e6"/>
+        <circle cx="20" cy="12" r="3.5" fill="#f26b38" class="nodo"/>
+        <circle cx="30" cy="28" r="3.5" fill="#fbf4e6"/>
+      </svg>
+      <span>Net<b>Prep</b></span>
+    </a>
+    <ul class="menu"><li><a href="cursos.html">Cursos</a></li><li><a href="ruta.html" class="activo">Ruta de estudio</a></li><li><a href="laboratorios.html">Laboratorios</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+  </nav>
+</header>
+
+<main>
+<section class="cabecera-pagina verde"><div class="contenedor"><h1>Ruta de estudio</h1><p>Un orden recomendado para avanzar sin perderte y llegar con seguridad a tu examen.</p></div></section>
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>De cero a pentester junior</h2><p>El orden que te recomendamos.</p></div>
+      <div class="pasos"><div class="paso"><span class="num">1</span><h3>Linux Essentials</h3><p>Domina la terminal, que es la base de todo.</p></div><div class="paso"><span class="num">2</span><h3>CCNA</h3><p>Aprende a configurar y entender redes.</p></div><div class="paso"><span class="num">3</span><h3>Security+</h3><p>Suma los fundamentos de seguridad.</p></div><div class="paso"><span class="num">4</span><h3>eJPT</h3><p>Pon todo a prueba en un pentest básico.</p></div></div>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Plan de 12 semanas</h2><p>Así se organiza cada curso.</p></div>
+      <ul class="linea-tiempo"><li><span class="sem">Semanas 1–3</span><div><h3>Fundamentos</h3><p>Conceptos clave, vocabulario y primeras prácticas.</p></div></li><li><span class="sem">Semanas 4–6</span><div><h3>Configuración</h3><p>Ejercicios guiados paso a paso en el laboratorio.</p></div></li><li><span class="sem">Semanas 7–9</span><div><h3>Escenarios reales</h3><p>Problemas completos que mezclan varios temas.</p></div></li><li><span class="sem">Semanas 10–12</span><div><h3>Simulacros</h3><p>Exámenes de práctica y repaso de tus puntos débiles.</p></div></li></ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Consejos de estudio</h2><p>Lo que más les ha funcionado a nuestros alumnos.</p></div>
+      <div class="grid-3"><div class="nota amarillo"><h3>Constancia</h3><p>Mejor 30 minutos diarios que una maratón el fin de semana.</p></div><div class="nota verde"><h3>Practica con las manos</h3><p>No basta con leer: configura, equivócate y vuelve a intentar.</p></div><div class="nota naranja"><h3>Anota tus dudas</h3><p>Llévalas a la sesión de preguntas y respuestas de cada semana.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cta naranja"><div class="contenedor"><h2>Empieza por el primer paso</h2><p>Elige tu curso y arma tu propio ritmo de estudio.</p><a href="cursos.html" class="btn-claro">Ver los cursos</a></div></section>
+</main>
+
+<!-- ========== PIE DE PÁGINA (es igual en todas las páginas) ========== -->
+<footer class="pie-pagina">
+  <div class="contenedor">
+    <div class="cols">
+      <div><p class="nombre">NetPrep</p><p>Preparación práctica para certificaciones de redes y ciberseguridad.</p></div>
+      <div><h4>Páginas</h4><a href="index.html">Inicio</a><a href="cursos.html">Cursos</a><a href="ruta.html">Ruta de estudio</a><a href="laboratorios.html">Laboratorios</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Cursos</h4><a href="cursos.html#ccna">CCNA</a><a href="cursos.html#ejpt">eJPT</a><a href="cursos.html#secplus">Security+</a><a href="cursos.html#linux">Linux Essentials</a></div>
+      <div><h4>Novedades</h4><p>Recibe consejos de estudio en tu correo.</p>
+        <form onsubmit="return false"><input type="email" placeholder="tu@correo.com"><button class="btn btn-sm">Unirme</button></form></div>
+    </div>
+    <p class="legal">© 2026 NetPrep · Proyecto académico de Hojas de Estilo en Cascada Avanzado · Cursos, precios, personas y testimonios son de ejemplo. Cisco, INE, CompTIA y LPI son marcas de sus respectivos dueños; este proyecto no está afiliado a ellas.</p>
+  </div>
+</footer>
+
+</body>
+</html>

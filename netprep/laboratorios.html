@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- El viewport hace que la página se vea bien en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorios | NetPrep</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="css/botones.css"> <!-- botones y pegatinas (LESS) -->
+  <link rel="stylesheet" href="css/style.css">   <!-- el resto de estilos (SASS) -->
+</head>
+<body>
+
+<!-- Barra de aviso de arriba -->
+<div class="aviso">Inscripciones abiertas: <strong>20% de descuento</strong> para estudiantes universitarios</div>
+
+<!-- ========== CABECERA (es igual en todas las páginas) ========== -->
+<header class="header">
+  <nav class="contenedor nav">
+    <!-- El logo es un dibujo SVG: tres nodos conectados, como una red -->
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#1b2a49"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="10" cy="28" r="3.5" fill="#fbf4e6"/>
+        <circle cx="20" cy="12" r="3.5" fill="#f26b38" class="nodo"/>
+        <circle cx="30" cy="28" r="3.5" fill="#fbf4e6"/>
+      </svg>
+      <span>Net<b>Prep</b></span>
+    </a>
+    <ul class="menu"><li><a href="cursos.html">Cursos</a></li><li><a href="ruta.html">Ruta de estudio</a></li><li><a href="laboratorios.html" class="activo">Laboratorios</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+  </nav>
+</header>
+
+<main>
+<section class="cabecera-pagina naranja"><div class="contenedor"><h1>Laboratorios</h1><p>Practica en entornos que se parecen a una red real, sin complicarte con instalaciones.</p></div></section>
+  <section>
+    <div class="contenedor panel">
+      <div class="intro">
+        <h2>Topologías listas para configurar</h2>
+        <p>Cada laboratorio trae un objetivo, una topología y una guía paso a paso. Tú configuras, pruebas y comparas con la solución.</p>
+      </div>
+      <!-- El diagrama es un SVG: se agranda o se achica con la pantalla -->
+      <div class="diagrama"><svg viewBox="0 0 400 250" role="img" aria-label="Diagrama de red con un router, dos switches y cuatro computadoras"><line class="enlace" x1="200" y1="56" x2="100" y2="110"/><line class="enlace" x1="200" y1="56" x2="300" y2="110"/><line class="enlace" x1="100" y1="146" x2="55" y2="200"/><line class="enlace" x1="100" y1="146" x2="145" y2="200"/><line class="enlace" x1="300" y1="146" x2="255" y2="200"/><line class="enlace" x1="300" y1="146" x2="345" y2="200"/><rect class="equipo" x="160" y="20" width="80" height="36" rx="6"/><text x="200" y="43">Router</text><rect class="equipo" x="60" y="110" width="80" height="36" rx="6"/><text x="100" y="133">Switch A</text><rect class="equipo" x="260" y="110" width="80" height="36" rx="6"/><text x="300" y="133">Switch B</text><rect class="equipo" x="20" y="200" width="70" height="32" rx="6"/><text x="55" y="221">PC1</text><rect class="equipo" x="110" y="200" width="70" height="32" rx="6"/><text x="145" y="221">PC2</text><rect class="equipo" x="220" y="200" width="70" height="32" rx="6"/><text x="255" y="221">PC3</text><rect class="equipo" x="310" y="200" width="70" height="32" rx="6"/><text x="345" y="221">PC4</text></svg></div>
+      <div class="dato d1"><strong>40+</strong>laboratorios guiados</div>
+      <div class="dato d2"><strong>12</strong>simulacros de examen</div>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Tres tipos de laboratorio</h2><p>Elige según lo que estés estudiando.</p></div>
+      <div class="grid-3">
+        <div class="caja"><h3>Redes con Packet Tracer</h3><p>Routers, switches, VLAN y enrutamiento para el CCNA.</p></div>
+        <div class="caja"><h3>Pentesting en máquinas virtuales</h3><p>Equipos vulnerables para escanear, explotar y reportar.</p></div>
+        <div class="caja"><h3>Linux en la terminal</h3><p>Comandos, permisos y scripts en un entorno seguro.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Qué incluye</h2><p>Todo lo que recibes al inscribirte.</p></div>
+      <ul class="lista-check lista-dos"><li>Guía paso a paso en cada laboratorio</li><li>Soluciones para comparar con tu trabajo</li><li>Topologías listas, sin instalar nada raro</li><li>Simulacros con reporte de resultados</li><li>Sesión semanal de preguntas y respuestas</li><li>Certificado de finalización</li></ul>
+    </div>
+  </section>
+
+  <section class="cta naranja"><div class="contenedor"><h2>Prueba un laboratorio</h2><p>Pide información y te mostramos cómo funciona la plataforma.</p><a href="contacto.html" class="btn-claro">Contactar</a></div></section>
+</main>
+
+<!-- ========== PIE DE PÁGINA (es igual en todas las páginas) ========== -->
+<footer class="pie-pagina">
+  <div class="contenedor">
+    <div class="cols">
+      <div><p class="nombre">NetPrep</p><p>Preparación práctica para certificaciones de redes y ciberseguridad.</p></div>
+      <div><h4>Páginas</h4><a href="index.html">Inicio</a><a href="cursos.html">Cursos</a><a href="ruta.html">Ruta de estudio</a><a href="laboratorios.html">Laboratorios</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Cursos</h4><a href="cursos.html#ccna">CCNA</a><a href="cursos.html#ejpt">eJPT</a><a href="cursos.html#secplus">Security+</a><a href="cursos.html#linux">Linux Essentials</a></div>
+      <div><h4>Novedades</h4><p>Recibe consejos de estudio en tu correo.</p>
+        <form onsubmit="return false"><input type="email" placeholder="tu@correo.com"><button class="btn btn-sm">Unirme</button></form></div>
+    </div>
+    <p class="legal">© 2026 NetPrep · Proyecto académico de Hojas de Estilo en Cascada Avanzado · Cursos, precios, personas y testimonios son de ejemplo. Cisco, INE, CompTIA y LPI son marcas de sus respectivos dueños; este proyecto no está afiliado a ellas.</p>
+  </div>
+</footer>
+
+</body>
+</html>

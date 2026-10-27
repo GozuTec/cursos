@@ -1,0 +1,12 @@
+/* Compilado desde less/botones.less  (comando: lessc less/botones.less css/botones.css) */
+.btn{display:inline-block;padding:12px 24px;border:2px solid #1b2a49;border-radius:50px;background:#f26b38;color:#1b2a49;font-family:inherit;font-size:1rem;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #1b2a49;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1b2a49}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b2a49}
+.btn-claro{display:inline-block;padding:12px 24px;border:2px solid #1b2a49;border-radius:50px;background:#ffd166;color:#1b2a49;font-family:inherit;font-size:1rem;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #1b2a49;transition:transform .2s,box-shadow .2s}
+.btn-claro:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1b2a49}
+.btn-claro:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b2a49}
+.btn-contorno{display:inline-block;padding:12px 24px;border:2px solid #1b2a49;border-radius:50px;background:#fbf4e6;color:#1b2a49;font-family:inherit;font-size:1rem;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #1b2a49;transition:transform .2s,box-shadow .2s}
+.btn-contorno:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1b2a49}
+.btn-contorno:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b2a49}
+.btn-sm{padding:6px 18px;font-size:.9rem}
+.pegatina{display:inline-block;padding:4px 14px;background:#ffd166;border:2px solid #1b2a49;border-radius:50px;font-size:.85rem;font-weight:700;box-shadow:2px 2px 0 rgba(27,42,73,.4);transform:rotate(-3deg)}

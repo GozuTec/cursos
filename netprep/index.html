@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- El viewport hace que la página se vea bien en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos de preparación CCNA, eJPT y más | NetPrep</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="css/botones.css"> <!-- botones y pegatinas (LESS) -->
+  <link rel="stylesheet" href="css/style.css">   <!-- el resto de estilos (SASS) -->
+</head>
+<body>
+
+<!-- Barra de aviso de arriba -->
+<div class="aviso">Inscripciones abiertas: <strong>20% de descuento</strong> para estudiantes universitarios</div>
+
+<!-- ========== CABECERA (es igual en todas las páginas) ========== -->
+<header class="header">
+  <nav class="contenedor nav">
+    <!-- El logo es un dibujo SVG: tres nodos conectados, como una red -->
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#1b2a49"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="10" cy="28" r="3.5" fill="#fbf4e6"/>
+        <circle cx="20" cy="12" r="3.5" fill="#f26b38" class="nodo"/>
+        <circle cx="30" cy="28" r="3.5" fill="#fbf4e6"/>
+      </svg>
+      <span>Net<b>Prep</b></span>
+    </a>
+    <ul class="menu"><li><a href="cursos.html">Cursos</a></li><li><a href="ruta.html">Ruta de estudio</a></li><li><a href="laboratorios.html">Laboratorios</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+  </nav>
+</header>
+
+<main>
+  <!-- ========== INICIO ========== -->
+  <section class="hero">
+    <div class="contenedor hero-grid">
+      <div class="hero-texto">
+        <span class="pegatina">¡Nuevo! Simulacros 2026</span>
+        <h1>Aprueba tu certificación de redes <span class="marcador">sin sufrir</span> en el intento</h1>
+        <p>Cursos prácticos para CCNA, eJPT y más. Con laboratorios guiados, simulacros de examen y gente real que te ayuda cuando te trabas.</p>
+        <div class="botones">
+          <a href="cursos.html" class="btn">Ver los cursos</a>
+          <a href="ruta.html" class="btn-contorno">Cómo funciona</a>
+        </div>
+        <ul class="mini-datos">
+          <li><strong>+800</strong>alumnos</li>
+          <li><strong>40+</strong>laboratorios</li>
+          <li><strong>4.8/5</strong>valoración</li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <!-- Terminal de adorno: cada línea aparece con un retraso -->
+        <div class="terminal" aria-hidden="true">
+          <div class="barra"><span></span><span></span><span></span><p>netprep@lab:~</p></div>
+          <div class="cuerpo">
+            <p class="linea l1">$ ping 192.168.1.1</p>
+            <p class="linea l2">64 bytes recibidos, ttl=64, tiempo=0.8 ms</p>
+            <p class="linea l3">$ nmap -sV 192.168.1.10</p>
+            <p class="linea l4">22/tcp  abierto  ssh</p>
+            <p class="linea l5">80/tcp  abierto  http</p>
+            <p class="linea l6">$ <span class="cursor"></span></p>
+          </div>
+        </div>
+        <p class="nota-adhesiva"><strong>Tip:</strong> 30 minutos al día valen más que 5 horas el domingo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARCAS ==========
+       Para poner los logos reales: guárdalos en img/logos/ y cambia cada <li> por
+       <li><img src="img/logos/cisco.svg" alt="Cisco"></li> -->
+  <section class="marcas">
+    <div class="contenedor">
+      <p>Te preparamos para las certificaciones de</p>
+      <ul><li>Cisco</li><li>INE</li><li>CompTIA</li><li>LPI</li></ul>
+    </div>
+  </section>
+
+  <!-- ========== CURSOS ========== -->
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Empieza por el que más te sirva</h2><p>Tres de nuestros cursos más pedidos.</p></div>
+      <div class="grid-3">
+        <article class="curso">
+          <div class="curso-cabecera naranja"><span class="sigla">CCNA</span><span class="nivel">Intermedio</span></div>
+          <div class="curso-cuerpo">
+            <h3>CCNA 200-301</h3>
+            <p>Redes, enrutamiento, switching y seguridad básica con Packet Tracer.</p>
+            <ul class="datos"><li>12 semanas</li><li>60 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 249</span><a href="cursos.html#ccna" class="btn btn-sm">Ver curso</a></div>
+          </div>
+        </article>
+        <article class="curso">
+          <div class="curso-cabecera verde"><span class="sigla">eJPT</span><span class="nivel">Inicial</span></div>
+          <div class="curso-cuerpo">
+            <h3>eJPT</h3>
+            <p>Pentesting básico: reconocimiento, explotación y reportes en laboratorio.</p>
+            <ul class="datos"><li>8 semanas</li><li>40 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 199</span><a href="cursos.html#ejpt" class="btn btn-sm">Ver curso</a></div>
+          </div>
+        </article>
+        <article class="curso">
+          <div class="curso-cabecera amarillo"><span class="sigla">SEC+</span><span class="nivel">Intermedio</span></div>
+          <div class="curso-cuerpo">
+            <h3>Security+</h3>
+            <p>Fundamentos de seguridad: amenazas, criptografía y gestión de riesgos.</p>
+            <ul class="datos"><li>10 semanas</li><li>50 lecciones</li></ul>
+            <div class="pie"><span class="precio">S/ 219</span><a href="cursos.html#secplus" class="btn btn-sm">Ver curso</a></div>
+          </div>
+        </article>
+      </div>
+      <p style="margin-top:32px"><a href="cursos.html" class="btn-contorno">Ver los 4 cursos</a></p>
+    </div>
+  </section>
+
+  <!-- ========== CÓMO ESTUDIAS ========== -->
+  <section class="franja">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Así estudias en NetPrep</h2><p>Cuatro pasos, sin vueltas.</p></div>
+      <div class="pasos"><div class="paso"><span class="num">1</span><h3>Aprendes la base</h3><p>Clases cortas y claras, con ejemplos de redes reales.</p></div><div class="paso"><span class="num">2</span><h3>Practicas en el laboratorio</h3><p>Ejercicios guiados que se parecen al examen.</p></div><div class="paso"><span class="num">3</span><h3>Rindes simulacros</h3><p>Mides tu avance y repasas lo que te falla.</p></div><div class="paso"><span class="num">4</span><h3>Das tu examen</h3><p>Llegas con calma y con práctica de sobra.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ========== NÚMEROS ========== -->
+  <section class="numeros azul">
+    <div class="contenedor">
+      <div><strong>+800</strong><span>alumnos</span></div>
+      <div><strong>40+</strong><span>laboratorios</span></div>
+      <div><strong>12</strong><span>simulacros</span></div>
+      <div><strong>4.8/5</strong><span>valoración</span></div>
+    </div>
+  </section>
+
+  <!-- ========== VIDEO (multimedia responsiva) ========== -->
+  <section>
+    <div class="contenedor video-bloque">
+      <div class="texto-video">
+        <h2>Mira cómo es una clase</h2>
+        <p>Clases cortas, con ejemplos en pantalla y laboratorio al final. El video se adapta a cualquier pantalla.</p>
+      </div>
+      <!-- Pon tu video en la carpeta media/ con el nombre clase.mp4 -->
+      <div class="video"><video controls preload="none"><source src="clase.mp4" type="video/mp4">Tu navegador no soporta video.</video></div>
+      <ul class="lista-check"><li>Clases de 10 a 15 minutos</li><li>Ejemplos con equipos reales</li><li>Laboratorio al final de cada tema</li></ul>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIOS ========== -->
+  <section>
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Lo que dicen quienes ya estudiaron aquí</h2></div>
+      <div class="grid-3"><figure class="testimonio"><blockquote>“Los laboratorios me ayudaron a perder el miedo a la consola. Aprobé el CCNA a la primera.”</blockquote><figcaption class="autor"><span class="avatar amarillo">C</span><div><strong>Camila R.</strong>Estudiante de Ingeniería de Sistemas</div></figcaption></figure><figure class="testimonio"><blockquote>“El curso de eJPT es directo y práctico. Terminé armando mi propio laboratorio en casa.”</blockquote><figcaption class="autor"><span class="avatar verde">D</span><div><strong>Diego M.</strong>Soporte técnico</div></figcaption></figure><figure class="testimonio"><blockquote>“Los simulacros se parecen mucho al examen real y me mostraron qué repasar.”</blockquote><figcaption class="autor"><span class="avatar naranja">L</span><div><strong>Lucía T.</strong>Analista junior de redes</div></figcaption></figure></div>
+    </div>
+  </section>
+
+  <!-- ========== EQUIPO ========== -->
+  <section class="franja">
+    <div class="contenedor">
+      <div class="titulo-seccion"><h2>Quiénes te enseñan</h2><p>Instructores con certificaciones y años de práctica.</p></div>
+      <div class="grid-3"><div class="persona"><div class="foto naranja">A</div><h3>Andrea Salazar</h3><p>Instructora de redes</p><div class="certs"><span>CCNA</span><span>CCNP</span></div></div><div class="persona"><div class="foto verde">L</div><h3>Luis Quispe</h3><p>Pentester y mentor</p><div class="certs"><span>eJPT</span><span>OSCP</span></div></div><div class="persona"><div class="foto amarillo">M</div><h3>Marco Vega</h3><p>Linux y seguridad</p><div class="certs"><span>Security+</span><span>LPIC-1</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="cta naranja"><div class="contenedor"><h2>¿Listo para certificarte?</h2><p>Escríbenos y te ayudamos a elegir tu primer curso.</p><a href="contacto.html" class="btn-claro">Hablar con un asesor</a></div></section>
+</main>
+
+<!-- ========== PIE DE PÁGINA (es igual en todas las páginas) ========== -->
+<footer class="pie-pagina">
+  <div class="contenedor">
+    <div class="cols">
+      <div><p class="nombre">NetPrep</p><p>Preparación práctica para certificaciones de redes y ciberseguridad.</p></div>
+      <div><h4>Páginas</h4><a href="index.html">Inicio</a><a href="cursos.html">Cursos</a><a href="ruta.html">Ruta de estudio</a><a href="laboratorios.html">Laboratorios</a><a href="contacto.html">Contacto</a></div>
+      <div><h4>Cursos</h4><a href="cursos.html#ccna">CCNA</a><a href="cursos.html#ejpt">eJPT</a><a href="cursos.html#secplus">Security+</a><a href="cursos.html#linux">Linux Essentials</a></div>
+      <div><h4>Novedades</h4><p>Recibe consejos de estudio en tu correo.</p>
+        <form onsubmit="return false"><input type="email" placeholder="tu@correo.com"><button class="btn btn-sm">Unirme</button></form></div>
+    </div>
+    <p class="legal">© 2026 NetPrep · Proyecto académico de Hojas de Estilo en Cascada Avanzado · Cursos, precios, personas y testimonios son de ejemplo. Cisco, INE, CompTIA y LPI son marcas de sus respectivos dueños; este proyecto no está afiliado a ellas.</p>
+  </div>
+</footer>
+
+</body>
+</html>
